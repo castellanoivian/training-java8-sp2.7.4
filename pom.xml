@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.2</version>
+    </parent>
+
+    <groupId>com.redtowersolution</groupId>
+    <artifactId>query</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>pom</packaging>
+
+    <name>payment-lines</name>
+
+    <description>Parent projects Payment Lines</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <java.source>${java.version}</java.source>
+
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <servlet-api.version>3.1.0</servlet-api.version>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+
+        <docker.image.prefix>microservice</docker.image.prefix>
+        <docker.plugin.version>1.2.2</docker.plugin.version>
+
+        <docker_tag></docker_tag>
+    </properties>
+
+    <modules>
+        <module>service-query</module>
+        <module>service-score</module>
+        <module>service-statistic</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>docker-tag</id>
+                            <goals>
+                                <goal>bsh-property</goal>
+                            </goals>
+                            <phase>pre-clean</phase>
+                            <configuration>
+                                <properties>
+                                    <property>docker_nexus</property>
+                                </properties>
+                                <source>
+                                    properties = project.getProperties();
+
+                                    docker_nexus = project.getVersion().endsWith("-SNAPSHOT") ?
+                                    properties.getProperty("artifactory.docker.snapshot.url") :
+                                    properties.getProperty("artifactory.docker.release.url");
+
+                                    docker_tag = project.getVersion().endsWith("-SNAPSHOT") ?
+                                    properties.getProperty("project.version") :
+                                    latest;
+                                </source>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${docker.plugin.version}</version>
+                    <configuration>
+                        <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                        <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
+                        <!--<serverId>docker-hub</serverId>-->
+                        <imageTags>
+                            <imageTag>${project.version}</imageTag>
+                            <imageTag>${docker_tag}</imageTag>
+                        </imageTags>
+                        <resources>
+                            <resource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}.jar</include>
+                            </resource>
+                        </resources>
+                        <buildArgs>
+                            <artifactname>${project.build.finalName}</artifactname>
+                        </buildArgs>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>rmi-image</id>
+                            <phase>clean</phase>
+                            <goals>
+                                <goal>removeImage</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>build-image</id>
+                            <phase>install</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>push-image</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>push</goal>
+                            </goals>
+                            <configuration>
+                                <imageName>
+                                    ${docker.image.prefix}/${project.artifactId}:${docker_tag}
+                                </imageName>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <configuration>
+                        <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
