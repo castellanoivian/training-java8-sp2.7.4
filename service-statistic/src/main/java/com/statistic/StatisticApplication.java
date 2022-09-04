@@ -8,10 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 public class StatisticApplication {
     public static void main(String[] args) {
-
         SpringApplication.run(StatisticApplication.class, args);
         System.out.println("*--- SERVICE QUERY SERVER IS UP AND RUNNING ---*");
     }
-
-
 }
