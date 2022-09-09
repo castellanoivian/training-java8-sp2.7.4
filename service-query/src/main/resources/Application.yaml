@@ -1,0 +1,12 @@
+server:
+  port: ${APPLICATION_PORT:5657}
+  compression:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: false

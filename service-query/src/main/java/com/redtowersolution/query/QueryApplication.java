@@ -1,4 +1,4 @@
-package com.query;
+package com.redtowersolution.query;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
