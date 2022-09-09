@@ -1,8 +1,8 @@
-package com.statistic.service.implement;
+package com.redtowersolution.statistic.service.implement;
 
-import com.statistic.model.Statistic;
-import com.statistic.repository.StatisticRepository;
-import com.statistic.service.StatisticService;
+import com.redtowersolution.statistic.model.Statistic;
+import com.redtowersolution.statistic.repository.StatisticRepository;
+import com.redtowersolution.statistic.service.StatisticService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

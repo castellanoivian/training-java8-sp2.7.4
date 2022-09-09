@@ -1,9 +1,9 @@
-package com.statistic.repository;
+package com.redtowersolution.statistic.repository;
 
 /*para utilizar los metodos de persistencia*/
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.statistic.model.Statistic;
+import com.redtowersolution.statistic.model.Statistic;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

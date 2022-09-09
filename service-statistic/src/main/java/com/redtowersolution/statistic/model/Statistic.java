@@ -1,4 +1,4 @@
-package com.statistic.model;
+package com.redtowersolution.statistic.model;
 
 
 import org.hibernate.annotations.ListIndexBase;

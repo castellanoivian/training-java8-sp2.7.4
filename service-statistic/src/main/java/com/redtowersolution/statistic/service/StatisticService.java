@@ -1,6 +1,7 @@
-package com.statistic.service;
+package com.redtowersolution.statistic.service;
 
-import com.statistic.model.Statistic;
+import com.redtowersolution.statistic.model.Statistic;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
