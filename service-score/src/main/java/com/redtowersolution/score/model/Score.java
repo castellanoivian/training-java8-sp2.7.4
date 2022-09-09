@@ -1,4 +1,4 @@
-package com.score.model;
+package com.redtowersolution.score.model;
 import javax.persistence.*;
 
 @Entity

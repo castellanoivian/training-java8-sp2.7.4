@@ -1,5 +1,6 @@
-package com.score.service;
-import com.score.model.Score;
+package com.redtowersolution.score.service;
+import com.redtowersolution.score.model.Score;
+
 import java.util.ArrayList;
 import java.util.Optional;
 

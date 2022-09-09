@@ -1,4 +1,4 @@
-package com.score;
+package com.redtowersolution.score;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;

@@ -1,10 +1,9 @@
-package com.score.service.implement;
-import com.score.model.Score;
-import com.score.repository.ScoreRepository;
-import com.score.service.ScoreService;
+package com.redtowersolution.score.service.implement;
+import com.redtowersolution.score.repository.ScoreRepository;
+import com.redtowersolution.score.model.Score;
+import com.redtowersolution.score.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -37,12 +36,6 @@ public class ScoreImplementation implements ScoreService{
             return false;
         }
     }
-    /*@Override
-    public ArrayList<Score> getScoreByIdCliente(Integer id_cliente) {
-        Optional<Score>score = getScoreById(id_cliente);
-        scoreRepository.delete(score.get());
-        return scoreRepository.findById(id_cliente);
-        return (ArrayList<Score>) scoreRepository.findAll();
-    }*/
+
 
 }
