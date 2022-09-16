@@ -13,5 +13,5 @@ public interface StatisticService {
     /* encontrar el estadistico por id */
     Optional<Statistic> getStatisticById(Integer id_statistic);
     Statistic saveStatistic(Statistic s);
-    boolean deleteStatisticById(Integer id_statistic);
+
 }
