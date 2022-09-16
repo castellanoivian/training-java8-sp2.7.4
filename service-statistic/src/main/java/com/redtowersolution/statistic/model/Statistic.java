@@ -21,9 +21,6 @@ public class Statistic {
     @Column(name = "statistic_score_cliente")
     private Double statistic_score_cliente;
 
-    @Column(name = "nombre_cliente")
-    private String nombre_cliente;
-
 
     /*creando un constructor vacio*/
     public Statistic() {
@@ -34,7 +31,7 @@ public class Statistic {
         this.id_statistic = id_statistic;
         this.id_cliente = id_cliente;
         this.statistic_score_cliente = statistic_score_cliente;
-        this.nombre_cliente = nombre_cliente;
+
     }
 
     public Integer getIdStatistic() {
@@ -61,11 +58,5 @@ public class Statistic {
         this.statistic_score_cliente = statistic_score_cliente;
     }
 
-    public String getNombreCliente() {
-        return nombre_cliente;
-    }
 
-    public void setNombreCliente(String nombre_cliente) {
-        this.nombre_cliente = nombre_cliente;
-    }
 }

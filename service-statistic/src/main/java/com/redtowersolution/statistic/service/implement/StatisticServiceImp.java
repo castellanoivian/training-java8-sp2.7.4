@@ -30,19 +30,9 @@ public class StatisticServiceImp implements StatisticService {
 
     @Override
     public Statistic saveStatistic(Statistic s) {
+
         return statisticRepository.save(s);
     }
 
 
-    @Override
-    public boolean deleteStatisticById(Integer id_statistic) {
-        try {
-            Optional<Statistic> s = getStatisticById(id_statistic);
-            statisticRepository.delete(s.get());
-            return true;
-        }catch (Exception e){
-            return  false;
-        }
-
-    }
 }
