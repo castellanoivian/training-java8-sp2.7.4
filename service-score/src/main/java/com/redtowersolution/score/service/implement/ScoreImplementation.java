@@ -15,27 +15,15 @@ public class ScoreImplementation implements ScoreService{
     public ArrayList<Score> getAllScore() {
         return (ArrayList<Score>) scoreRepository.findAll();
     }
-
+    public Optional<Score> findAllById(Integer id_cliente) {
+        return scoreRepository.findById(id_cliente);
+    }
     @Override
     public Optional<Score> getScoreById(Integer id_score) {
         return scoreRepository.findById(id_score);
     }
 
-    @Override
-    public Score saveScore(Score score) {
-        return scoreRepository.save(score);
-    }
 
-    @Override
-    public boolean deleteScorebyID(Integer id_score) {
-        try{
-            Optional<Score>score = getScoreById(id_score);
-            scoreRepository.delete(score.get());
-            return true;
-        }catch (Exception e){
-            return false;
-        }
-    }
 
 
 }
