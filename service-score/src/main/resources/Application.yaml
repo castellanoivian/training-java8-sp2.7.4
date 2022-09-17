@@ -27,7 +27,7 @@ spring:
       mode: always
 
 server:
-  port: ${APPLICATION_PORT:5656}
+  port: ${APPLICATION_PORT:8080}
   compression:
     enabled: true
 management:

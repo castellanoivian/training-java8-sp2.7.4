@@ -7,8 +7,8 @@ import java.util.Optional;
 public interface ScoreService {
     ArrayList<Score>getAllScore();
     Optional<Score>getScoreById(Integer id_score);
-    Score saveScore(Score score);
-    boolean deleteScorebyID(Integer id_score);
+    Optional<Score>findAllById(Integer id_cliente);
+
 
 
 }
