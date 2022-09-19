@@ -7,20 +7,19 @@ public class Score {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id_score;
-    @Column(name = "id_cliente")
-    private Integer id_cliente;
+    @Column(name = "clienteID")
+    private Integer clienteID;
     @Column(name = "score")
     private Integer score;
 
-    public Score(Integer id_score, Integer id_cliente, Integer score) {
+    public Score(Integer id_score, Integer clienteID, Integer score) {
         this.id_score = id_score;
-        this.id_cliente = id_cliente;
+        this.clienteID = clienteID;
         this.score = score;
     }
 
     public Score() {
     }
-
 
     public Integer getId_score() {
         return id_score;
@@ -30,12 +29,12 @@ public class Score {
         this.id_score = id_score;
     }
 
-    public Integer getId_cliente() {
-        return id_cliente;
+    public Integer getClienteID() {
+        return clienteID;
     }
 
-    public void setId_cliente(Integer id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setClienteID(Integer clienteID) {
+        this.clienteID = clienteID;
     }
 
     public Integer getScore() {
