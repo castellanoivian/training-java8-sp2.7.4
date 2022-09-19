@@ -1,10 +1,7 @@
 package com.redtowersolution.statistic.model;
 
 
-import org.hibernate.annotations.ListIndexBase;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table (name = "db_statistic")
@@ -19,15 +16,15 @@ public class Statistic {
 
     /*average*/
     @Column(name = "statistic_score_cliente")
-    private Double statistic_score_cliente;
+    private Integer statistic_score_cliente;
 
 
     /*creando un constructor vacio*/
-    public Statistic() {
+    public Statistic(Integer idCliente, Integer statisticScoreCliente) {
 
     }
 
-    public Statistic(Integer id_statistic, Integer id_cliente, Double statistic_score_cliente, String nombre_cliente) {
+    public Statistic(Integer id_statistic, Integer id_cliente, Integer statistic_score_cliente) {
         this.id_statistic = id_statistic;
         this.id_cliente = id_cliente;
         this.statistic_score_cliente = statistic_score_cliente;
@@ -50,11 +47,11 @@ public class Statistic {
         this.id_cliente = id_cliente;
     }
 
-    public Double getStatisticScoreCliente() {
+    public Integer getStatisticScoreCliente() {
         return statistic_score_cliente;
     }
 
-    public void setStatisticScoreCliente(Double statistic_score_cliente) {
+    public void setStatisticScoreCliente(Integer statistic_score_cliente) {
         this.statistic_score_cliente = statistic_score_cliente;
     }
 
