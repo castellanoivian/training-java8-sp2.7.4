@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @RestController
 public class StatisticController {
 
@@ -18,17 +20,17 @@ public class StatisticController {
     StatisticRepository statisticRepository;
 
     @PostMapping("/saveScore")
-    public ResponseEntity<Statistic> saveScoreStatistic (@RequestBody Statistic varStatistic) {
+    public ResponseEntity<Statistic> saveScoreStatistic (@RequestBody List<Statistic> listStatistic ) {
         try {
 
             String url = "https://localhost:8090/api/scoreByIdCliente";
-            Statistic vStatistic = statisticRepository
-                    .save(new Statistic(varStatistic.getIdCliente(), varStatistic.getStatisticScoreCliente()));
+
+            Statistic lStatistic = (Statistic) statisticRepository.saveAll(listStatistic);
             RestTemplate restTemplate = new RestTemplate();
 
-            restTemplate.postForObject(url, vStatistic, Statistic.class);
+            restTemplate.postForObject(url, lStatistic, Statistic.class);
 
-            return new ResponseEntity<>(vStatistic, HttpStatus.CREATED);
+            return new ResponseEntity<>(lStatistic, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
