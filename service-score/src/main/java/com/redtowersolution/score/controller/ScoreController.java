@@ -49,5 +49,9 @@ public class ScoreController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/viewScoreIdCliente/{clienteID}")
+    public List<Score> byIdCliente(@PathVariable("clienteID") int clienteID) {
+        return scoreRepository.findAllScoreByClienteID(clienteID);
+    }
 
 }

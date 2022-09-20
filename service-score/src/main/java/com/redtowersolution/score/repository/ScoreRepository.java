@@ -11,10 +11,7 @@ import java.util.Optional;
 @Repository
 public interface ScoreRepository extends CrudRepository<Score, Integer> {
     Optional<Score> findAllByClienteID(int clienteID);
-    /*Optional<Score> findAllById(Integer id_cliente);
-        extends CrudRepository<Score, Integer> {
-    @Query("SELECT scores FROM Score scores " +
-            "WHERE scores.id_cliente = :id_cliente ")
-    Optional<Score> mostrarScore(@Param("id_cliente")Integer id_cliente);*/
+
+    List<Score> findAllScoreByClienteID(int clienteID);
 
 }
