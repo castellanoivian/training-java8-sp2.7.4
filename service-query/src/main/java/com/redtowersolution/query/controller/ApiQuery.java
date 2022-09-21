@@ -14,14 +14,12 @@ import java.util.List;
 public class ApiQuery {
 
     @GetMapping("/scoreByIdCliente")
-    public List<Object> getScoresByIdCliente(@RequestParam int clienteID){
-        String urlScore = "https://localhost:8080/scoresByIdCliente/"+clienteID;
+    public List<Object> getScoresByIdCliente(@RequestParam(name="clienteID", required=false, defaultValue="null") int clienteID){
+        String urlScore = "https://localhost:8080/scoresByIdCliente/{clienteID}";
         RestTemplate restTemplate = new RestTemplate();
-        Object[] scoreArray = restTemplate.getForObject(urlScore, Object[].class);
-        if (scoreArray != null)
-            return Arrays.asList(scoreArray);
-        else
-            return null;
+        Object[] scoreArray = restTemplate.getForObject(urlScore, Object[].class, clienteID);
+        assert scoreArray != null;
+        return Arrays.asList(scoreArray);
     }
 
 }
