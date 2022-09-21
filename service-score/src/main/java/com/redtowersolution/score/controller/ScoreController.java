@@ -23,10 +23,6 @@ public class ScoreController {
         return "createScorePage";
     }
 
-    @GetMapping("/scoresByIdCliente/{clienteID}")
-    public Optional<Score> byId(@PathVariable("clienteID") int clienteID) {
-        return scoreRepository.findAllByClienteID(clienteID);
-    }
 
     @PutMapping("/updateScore")
     public String updateScore(@ModelAttribute("score") Score score,

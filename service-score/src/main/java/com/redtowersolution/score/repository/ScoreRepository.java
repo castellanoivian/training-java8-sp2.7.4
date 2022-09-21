@@ -10,8 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface ScoreRepository extends CrudRepository<Score, Integer> {
-    Optional<Score> findAllByClienteID(int clienteID);
-
     List<Score> findAllScoreByClienteID(int clienteID);
 
 }
