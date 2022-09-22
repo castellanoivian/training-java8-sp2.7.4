@@ -13,7 +13,7 @@ public class ApiQuery {
     @GetMapping("/scoreByIdCliente")
         public List<Object> getScoresByIdCliente(@RequestParam("clienteID") int clienteID){
         RestTemplate restTemplate = new RestTemplate();
-        String urlScore = "https://localhost:8080/scoresByIdCliente/{clienteID}";
+        String urlScore = "http://localhost:8080/scoresByIdCliente/{clienteID}";
         Object[] scoreArray = restTemplate.getForObject(urlScore, Object[].class, clienteID);
         assert scoreArray != null;
         return Arrays.asList(scoreArray);
