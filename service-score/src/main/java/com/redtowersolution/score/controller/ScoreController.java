@@ -18,17 +18,6 @@ public class ScoreController {
     @Autowired
     ScoreRepository scoreRepository;
 
-    @PostMapping("/createScore")
-    public String createScore() {
-        return "createScorePage";
-    }
-
-
-    @PutMapping("/updateScore")
-    public String updateScore(@ModelAttribute("score") Score score,
-                              ModelMap modelMap) {
-        return "editUserPage";
-    }
     @PostMapping("/saveScore")
     public void saveScore(@RequestBody Score s) {
         scoreRepository.save(s);
