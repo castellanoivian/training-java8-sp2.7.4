@@ -1,0 +1,31 @@
+version: '3'  # optional since v1.27.0
+services:
+  service-statistic:
+    image: microservice/service-statistic:0.0.1-SNAPSHOT
+    networks:
+      - payment
+    container_name: service-statistic
+    ports:
+      - "5658:5658"
+    environment:
+      APPLICATION_PORT: 5658
+  service-score:
+    image: microservice/service-score:0.0.1-SNAPSHOT
+    networks:
+      - payment
+    container_name: service-score
+    ports:
+      - "8082:8082"
+    environment:
+      APPLICATION_PORT: 8080
+  service-query:
+    image: microservice/service-query:0.0.1-SNAPSHOT
+    networks:
+      - payment
+    container_name: service-query
+    ports:
+      - "8090:8090"
+    environment:
+      APPLICATION_PORT: 8090
+networks:
+  payment:
