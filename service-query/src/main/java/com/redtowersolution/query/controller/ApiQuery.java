@@ -11,12 +11,13 @@ import java.util.List;
 public class ApiQuery {
 
     @GetMapping("/scoreByIdCliente")
-        public List<Object> getScoresByIdCliente(@RequestParam("clienteID") int clienteID){
+    public void getScoresByIdCliente(@RequestParam("clienteID") int clienteID){
         RestTemplate restTemplate = new RestTemplate();
-        String urlScore = "http://localhost:8080/scoresByIdCliente/{clienteID}";
+        String urlScore = "http://localhost:8080/viewScoreIdCliente/{clienteID}";
         Object[] scoreArray = restTemplate.getForObject(urlScore, Object[].class, clienteID);
-        assert scoreArray != null;
-        return Arrays.asList(scoreArray);
+        List<Object> listStatistic = Arrays.asList(scoreArray);
+        String urlStatistic = "http://localhost:5658/saveScore";
+        restTemplate.postForObject(urlStatistic, listStatistic, Object.class);
     }
 
 }
