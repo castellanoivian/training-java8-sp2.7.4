@@ -40,6 +40,7 @@
         <module>service-query</module>
         <module>service-score</module>
         <module>service-statistic</module>
+        <module>service-common</module>
     </modules>
 
     <dependencyManagement>

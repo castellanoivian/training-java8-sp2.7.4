@@ -1,6 +1,6 @@
 package com.redtowersolution.statistic.controller;
 
-import com.redtowersolution.statistic.model.Statistic;
+import com.redtowersolution.common.model.Statistic;
 import com.redtowersolution.statistic.repository.StatisticRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

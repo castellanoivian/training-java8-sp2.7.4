@@ -3,11 +3,10 @@ import com.redtowersolution.score.repository.ScoreRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.redtowersolution.score.model.Score;
+import com.redtowersolution.common.model.Score;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.ModelMap;
+
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ScoreController {
