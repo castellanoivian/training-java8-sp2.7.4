@@ -5,55 +5,54 @@ import javax.persistence.*;
 
 @Entity
 @Table (name = "db_statistic")
+
 public class Statistic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_statistic;
+    private Integer idStatistic;
 
-    @Column(name = "id_cliente")
-    private Integer id_cliente;
+    //@Column(name = "id_cliente")
+    private Integer idCliente;
 
     /*average*/
-    @Column(name = "statistic_score_cliente")
-    private Integer statistic_score_cliente;
+    //@Column(name = "statistic_score_cliente")
+    private Integer statisticScoreCliente;
 
 
     /*creando un constructor vacio*/
-    public Statistic(Integer idCliente, Integer statisticScoreCliente) {
+    public Statistic() {
 
     }
 
-    public Statistic(Integer id_statistic, Integer id_cliente, Integer statistic_score_cliente) {
-        this.id_statistic = id_statistic;
-        this.id_cliente = id_cliente;
-        this.statistic_score_cliente = statistic_score_cliente;
-
+    public Statistic(Integer idStatistic, Integer idCliente, Integer statisticScoreCliente) {
+        this.idStatistic = idStatistic;
+        this.idCliente = idCliente;
+        this.statisticScoreCliente = statisticScoreCliente;
     }
 
     public Integer getIdStatistic() {
-        return id_statistic;
+        return idStatistic;
     }
 
-    public void setIdStatistic(Integer id_statistic) {
-        this.id_statistic = id_statistic;
+    public void setIdStatistic(Integer idStatistic) {
+        this.idStatistic = idStatistic;
     }
 
     public Integer getIdCliente() {
-        return id_cliente;
+        return idCliente;
     }
 
-    public void setIdCliente(Integer id_cliente) {
-        this.id_cliente = id_cliente;
+    public void setIdCliente(Integer idCliente) {
+        this.idCliente = idCliente;
     }
 
     public Integer getStatisticScoreCliente() {
-        return statistic_score_cliente;
+        return statisticScoreCliente;
     }
 
-    public void setStatisticScoreCliente(Integer statistic_score_cliente) {
-        this.statistic_score_cliente = statistic_score_cliente;
+    public void setStatisticScoreCliente(Integer statisticScoreCliente) {
+        this.statisticScoreCliente = statisticScoreCliente;
     }
-
-
 }
+
