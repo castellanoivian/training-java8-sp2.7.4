@@ -9,6 +9,9 @@ services:
       - "5658:5658"
     environment:
       APPLICATION_PORT: 5658
+      POSTGRES_USER: pos
+      POSTGRES_PASS: pos
+      POSTGRES_URL: jdbc:postgresql://localhost:5432/pos_t
   service-score:
     image: microservice/service-score:0.0.1-SNAPSHOT
     networks:
@@ -18,6 +21,9 @@ services:
       - "8080:8080"
     environment:
       APPLICATION_PORT: 8080
+      POSTGRES_USER: pos
+      POSTGRES_PASS: pos
+      POSTGRES_URL: jdbc:postgresql://localhost:5432/pos_l
   service-query:
     image: microservice/service-query:0.0.1-SNAPSHOT
     networks:

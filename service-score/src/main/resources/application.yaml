@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:service-score}
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+  datasource:
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASS}
+    driver-class-name: org.postgresql.Driver
+  sql:
+    init:
+      platform: "postgresql"
+      mode: always
+
+server:
+  port: ${APPLICATION_PORT:7890}
+  compression:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: false
