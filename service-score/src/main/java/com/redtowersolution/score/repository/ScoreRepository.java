@@ -8,5 +8,7 @@ import java.util.List;
 @Repository
 public interface ScoreRepository extends CrudRepository<Score, Integer> {
     List<Score> findAllScoreByClienteID(int clienteID);
+    //List<Score> findAllScoreByClientesID(List<Integer> clientesID);
+
 
 }

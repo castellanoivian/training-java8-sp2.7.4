@@ -1,4 +1,5 @@
 package com.redtowersolution.score.controller;
+import com.redtowersolution.common.model.Statistic;
 import com.redtowersolution.score.repository.ScoreRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.redtowersolution.common.model.Score;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,9 +35,18 @@ public class ScoreController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/viewScoreIdCliente/{clienteID}")
+    /*@GetMapping("/viewScoreIdCliente/{clienteID}")
     public List<Score> byIdCliente(@PathVariable("clienteID") int clienteID) {
         return scoreRepository.findAllScoreByClienteID(clienteID);
+    }*/
+   @GetMapping(value = "/viewScoreIdClientes/{listClienteID}")
+    public List<Score> byIdClientes(@PathVariable List<Integer> listClienteID) {
+       List<Score> scoresListID = new ArrayList<>();
+        for (Integer scores : listClienteID){
+            List<Score> scoresList = new ArrayList<>();
+            scoresList = scoreRepository.findAllScoreByClienteID(scores);
+            scoresList.forEach(scoresListID::add);
+            }
+           return scoresListID;
     }
-
 }
