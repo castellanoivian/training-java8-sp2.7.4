@@ -40,5 +40,5 @@ public class ApiQuery {
 
         return restTemplate.postForObject(urlStatistic, listStatistic, List.class);
     }
-
+de
 }
