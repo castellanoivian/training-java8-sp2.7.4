@@ -1,10 +1,9 @@
 package com.redtowersolution.score.controller;
-import com.redtowersolution.common.model.Statistic;
 import com.redtowersolution.score.repository.ScoreRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.redtowersolution.common.model.Score;
+import com.redtowersolution.common.model.score.Score;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

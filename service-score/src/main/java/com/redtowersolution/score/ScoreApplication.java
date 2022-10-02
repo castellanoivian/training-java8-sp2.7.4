@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @SpringBootApplication
-@EntityScan("com.redtowersolution.common.model")
+@EntityScan("com.redtowersolution.common.model.score")
 public class ScoreApplication {
     private static final Logger LOG = LoggerFactory.getLogger(ScoreApplication.class);
 

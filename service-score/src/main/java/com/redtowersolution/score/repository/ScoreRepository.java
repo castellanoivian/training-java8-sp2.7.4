@@ -1,6 +1,6 @@
 package com.redtowersolution.score.repository;
 import org.springframework.data.repository.CrudRepository;
-import  com.redtowersolution.common.model.Score;
+import com.redtowersolution.common.model.score.Score;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -12,7 +12,7 @@ import java.net.UnknownHostException;
 
 
 @SpringBootApplication
-@EntityScan("com.redtowersolution.common.model")
+@EntityScan("com.redtowersolution.common.model.statistic")
 public class StatisticApplication {
     private static final Logger LOG = LoggerFactory.getLogger(StatisticApplication.class);
 

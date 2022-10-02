@@ -1,4 +1,4 @@
-package com.redtowersolution.common.model;
+package com.redtowersolution.common.model.statistic;
 
 
 import lombok.AllArgsConstructor;

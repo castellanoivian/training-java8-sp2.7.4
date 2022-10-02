@@ -1,4 +1,4 @@
-package com.redtowersolution.common.model;
+package com.redtowersolution.common.model.score;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
